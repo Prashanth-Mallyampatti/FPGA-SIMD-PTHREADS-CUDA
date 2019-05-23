@@ -1,0 +1,325 @@
+/home/pmallya/csc456/device/vectorAdd.cl:23:47: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+__kernel void vectorAdd(__global const float *x, 
+                                              ^
+/home/pmallya/csc456/device/vectorAdd.cl:24:47: warning: declaring kernel argument with no 'restrict' may lead to low kernel performance
+                        __global const float *y, 
+                                              ^
+2 warnings generated.
+
++--------------------------------------------------------------------+
+; Estimated Resource Usage Summary                                   ;
++----------------------------------------+---------------------------+
+; Resource                               + Usage                     ;
++----------------------------------------+---------------------------+
+; Logic utilization                      ;   20%                     ;
+; Dedicated logic registers              ;    8%                     ;
+; Memory blocks                          ;   12%                     ;
+; DSP blocks                             ;    0%                     ;
++----------------------------------------+---------------------------;
+System name: vectorAdd
+
+Placing kernel vectorAdd at address 0x0
+2019.02.22.18:46:12 Info: Doing: <b>qsys-script --script=system.tcl --Xmx512M --XX:+UseSerialGC --system-file=system.qsys</b>
+2019.02.22.18:47:25 Info: set_validation_property AUTOMATIC_VALIDATION false
+2019.02.22.18:47:25 Info: add_instance vectorAdd_system vectorAdd_system 
+2019.02.22.18:47:25 Info: add_connection acl_iface.kernel_clk vectorAdd_system.clock_reset
+2019.02.22.18:47:25 Info: add_connection acl_iface.kernel_clk2x vectorAdd_system.clock_reset2x
+2019.02.22.18:47:25 Info: add_connection acl_iface.kernel_reset vectorAdd_system.clock_reset_reset
+2019.02.22.18:47:25 Info: add_connection vectorAdd_system.avm_memgmem0_port_0_0_rw acl_iface.kernel_mem0
+2019.02.22.18:47:25 Info: add_connection acl_iface.kernel_irq vectorAdd_system.kernel_irq
+2019.02.22.18:47:25 Info: add_instance cra_root cra_ring_root 
+2019.02.22.18:47:25 Info: set_instance_parameter_value cra_root DATA_W 64
+2019.02.22.18:47:25 Info: set_instance_parameter_value cra_root ADDR_W 4
+2019.02.22.18:47:25 Info: set_instance_parameter_value cra_root ID_W 0
+2019.02.22.18:47:25 Info: add_connection acl_iface.kernel_clk cra_root.clock
+2019.02.22.18:47:25 Info: add_connection acl_iface.kernel_reset cra_root.reset
+2019.02.22.18:47:25 Info: add_connection acl_iface.kernel_cra cra_root.cra_slave
+2019.02.22.18:47:25 Info: set_connection_parameter_value acl_iface.kernel_cra/cra_root.cra_slave baseAddress 0x0
+2019.02.22.18:47:25 Info: add_instance avs_vectorAdd_cra_cra_ring cra_ring_node 
+2019.02.22.18:47:25 Info: set_instance_parameter_value avs_vectorAdd_cra_cra_ring DATA_W 64
+2019.02.22.18:47:25 Info: set_instance_parameter_value avs_vectorAdd_cra_cra_ring RING_ADDR_W 4
+2019.02.22.18:47:25 Info: set_instance_parameter_value avs_vectorAdd_cra_cra_ring CRA_ADDR_W 4
+2019.02.22.18:47:25 Info: set_instance_parameter_value avs_vectorAdd_cra_cra_ring ID_W 0
+2019.02.22.18:47:25 Info: set_instance_parameter_value avs_vectorAdd_cra_cra_ring ID 0
+2019.02.22.18:47:25 Info: add_connection acl_iface.kernel_clk avs_vectorAdd_cra_cra_ring.clock
+2019.02.22.18:47:25 Info: add_connection acl_iface.kernel_reset avs_vectorAdd_cra_cra_ring.reset
+2019.02.22.18:47:25 Info: add_connection cra_root.ring_out avs_vectorAdd_cra_cra_ring.ring_in
+2019.02.22.18:47:25 Info: add_connection avs_vectorAdd_cra_cra_ring.cra_master vectorAdd_system.avs_vectorAdd_cra
+2019.02.22.18:47:25 Info: set_connection_parameter_value avs_vectorAdd_cra_cra_ring.cra_master/vectorAdd_system.avs_vectorAdd_cra baseAddress 0x0
+2019.02.22.18:47:25 Info: add_connection avs_vectorAdd_cra_cra_ring.ring_out cra_root.ring_in
+2019.02.22.18:47:25 Info: save_system 
+2019.02.22.18:47:29 Progress: Loading bin_vectorAdd/system.qsys
+2019.02.22.18:47:30 Progress: Reading input file
+2019.02.22.18:47:30 Progress: Adding ext_clk_50 [clock_source 14.0]
+2019.02.22.18:47:31 Progress: Parameterizing module ext_clk_50
+2019.02.22.18:47:31 Progress: Adding acl_iface [acl_iface_system 1.0]
+2019.02.22.18:47:31 Progress: Reading input file
+2019.02.22.18:47:31 Progress: Adding global_reset [altera_reset_bridge 14.0]
+2019.02.22.18:47:31 Progress: Parameterizing module global_reset
+2019.02.22.18:47:31 Progress: Adding config_clk [altera_clock_bridge 14.0]
+2019.02.22.18:47:31 Progress: Parameterizing module config_clk
+2019.02.22.18:47:31 Progress: Adding acl_kernel_clk [acl_kernel_clk 1.0]
+2019.02.22.18:47:31 Progress: Reading input file
+2019.02.22.18:47:31 Warning: Invalid device family name in input file: Stratix V
+2019.02.22.18:47:31 Progress: Adding kernel_clk [clock_source 13.1]
+2019.02.22.18:47:31 Warning: kernel_clk: Used clock_source 14.0 (instead of 13.1)
+2019.02.22.18:47:31 Progress: Parameterizing module kernel_clk
+2019.02.22.18:47:31 Progress: Adding kernel_pll [altera_pll 13.1]
+2019.02.22.18:47:36 Warning: kernel_pll: Used altera_pll 14.0 (instead of 13.1)
+2019.02.22.18:47:36 Progress: Parameterizing module kernel_pll
+2019.02.22.18:47:36 Progress: Adding pll_reconfig_0 [acl_pll_reconfig 12.1]
+2019.02.22.18:47:36 Warning: acl_pll_reconfig: set_interface_assignment: Interface "mgmt_waitrequest" does not exist
+2019.02.22.18:47:36 Progress: Parameterizing module pll_reconfig_0
+2019.02.22.18:47:36 Progress: Adding pll_rom [altera_avalon_onchip_memory2 13.1]
+2019.02.22.18:47:36 Warning: pll_rom: Used altera_avalon_onchip_memory2 14.0 (instead of 13.1)
+2019.02.22.18:47:36 Progress: Parameterizing module pll_rom
+2019.02.22.18:47:36 Progress: Adding counter [timer 10.0]
+2019.02.22.18:47:36 Progress: Parameterizing module counter
+2019.02.22.18:47:36 Progress: Adding global_routing_kernel_clk [global_routing_clk 10.0]
+2019.02.22.18:47:36 Progress: Parameterizing module global_routing_kernel_clk
+2019.02.22.18:47:36 Progress: Adding global_routing_kernel_clk2x [global_routing_clk 10.0]
+2019.02.22.18:47:36 Progress: Parameterizing module global_routing_kernel_clk2x
+2019.02.22.18:47:36 Progress: Adding kernel_pll_refclk [altera_clock_bridge 13.1]
+2019.02.22.18:47:36 Warning: kernel_pll_refclk: Used altera_clock_bridge 14.0 (instead of 13.1)
+2019.02.22.18:47:36 Progress: Parameterizing module kernel_pll_refclk
+2019.02.22.18:47:36 Progress: Adding ctrl [altera_avalon_mm_bridge 13.1]
+2019.02.22.18:47:36 Warning: ctrl: Used altera_avalon_mm_bridge 14.0 (instead of 13.1)
+2019.02.22.18:47:36 Progress: Parameterizing module ctrl
+2019.02.22.18:47:36 Progress: Adding pll_sw_reset [sw_reset 10.0]
+2019.02.22.18:47:36 Progress: Parameterizing module pll_sw_reset
+2019.02.22.18:47:36 Progress: Adding pll_lock_avs_0 [pll_lock_avs 10.0]
+2019.02.22.18:47:36 Progress: Parameterizing module pll_lock_avs_0
+2019.02.22.18:47:36 Progress: Adding clk [clock_source 13.1]
+2019.02.22.18:47:36 Warning: clk: Used clock_source 14.0 (instead of 13.1)
+2019.02.22.18:47:36 Progress: Parameterizing module clk
+2019.02.22.18:47:36 Progress: Adding version_id_0 [version_id 10.0]
+2019.02.22.18:47:36 Progress: Parameterizing module version_id_0
+2019.02.22.18:47:36 Progress: Building connections
+2019.02.22.18:47:37 Progress: Parameterizing connections
+2019.02.22.18:47:37 Progress: Validating
+2019.02.22.18:47:46 Progress: Done reading input file
+2019.02.22.18:47:46 Progress: Parameterizing module acl_kernel_clk
+2019.02.22.18:47:46 Progress: Adding kernel_clk [clock_source 14.0]
+2019.02.22.18:47:46 Progress: Parameterizing module kernel_clk
+2019.02.22.18:47:46 Progress: Adding clock_bridge [altera_clock_bridge 14.0]
+2019.02.22.18:47:46 Progress: Parameterizing module clock_bridge
+2019.02.22.18:47:46 Progress: Adding clock_cross_kernel_mem1 [altera_avalon_mm_clock_crossing_bridge 14.0]
+2019.02.22.18:47:46 Progress: Parameterizing module clock_cross_kernel_mem1
+2019.02.22.18:47:46 Progress: Adding version_id [version_id 10.0]
+2019.02.22.18:47:46 Progress: Parameterizing module version_id
+2019.02.22.18:47:46 Progress: Adding hps [altera_hps 14.0]
+2019.02.22.18:47:49 Progress: Parameterizing module hps
+2019.02.22.18:47:49 Progress: Adding acl_kernel_interface [acl_kernel_interface 1.0]
+2019.02.22.18:47:49 Progress: Reading input file
+2019.02.22.18:47:49 Progress: Adding sys_description_rom [altera_avalon_onchip_memory2 13.1]
+2019.02.22.18:47:49 Warning: sys_description_rom: Used altera_avalon_onchip_memory2 14.0 (instead of 13.1)
+2019.02.22.18:47:49 Progress: Parameterizing module sys_description_rom
+2019.02.22.18:47:49 Progress: Adding kernel_cra [altera_avalon_mm_bridge 13.1]
+2019.02.22.18:47:49 Warning: kernel_cra: Used altera_avalon_mm_bridge 14.0 (instead of 13.1)
+2019.02.22.18:47:49 Progress: Parameterizing module kernel_cra
+2019.02.22.18:47:49 Progress: Adding address_span_extender_0 [altera_address_span_extender 1.2]
+2019.02.22.18:47:49 Warning: address_span_extender_0: Used altera_address_span_extender 14.0 (instead of 1.2)
+2019.02.22.18:47:49 Progress: Parameterizing module address_span_extender_0
+2019.02.22.18:47:49 Progress: Adding sw_reset [sw_reset 10.0]
+2019.02.22.18:47:49 Progress: Parameterizing module sw_reset
+2019.02.22.18:47:49 Progress: Adding kernel_cntrl [altera_avalon_mm_bridge 13.1]
+2019.02.22.18:47:49 Warning: kernel_cntrl: Used altera_avalon_mm_bridge 14.0 (instead of 13.1)
+2019.02.22.18:47:49 Progress: Parameterizing module kernel_cntrl
+2019.02.22.18:47:49 Progress: Adding mem_org_mode [mem_org_mode 10.0]
+2019.02.22.18:47:49 Progress: Parameterizing module mem_org_mode
+2019.02.22.18:47:49 Progress: Adding clk_reset [clock_source 13.1]
+2019.02.22.18:47:49 Warning: clk_reset: Used clock_source 14.0 (instead of 13.1)
+2019.02.22.18:47:49 Progress: Parameterizing module clk_reset
+2019.02.22.18:47:49 Progress: Adding irq_bridge_0 [altera_irq_bridge 13.1]
+2019.02.22.18:47:50 Warning: irq_bridge_0: Used altera_irq_bridge 14.0 (instead of 13.1)
+2019.02.22.18:47:50 Progress: Parameterizing module irq_bridge_0
+2019.02.22.18:47:50 Progress: Adding sw_reset_in [altera_reset_bridge 13.1]
+2019.02.22.18:47:50 Warning: sw_reset_in: Used altera_reset_bridge 14.0 (instead of 13.1)
+2019.02.22.18:47:50 Progress: Parameterizing module sw_reset_in
+2019.02.22.18:47:50 Progress: Adding version_id_0 [version_id 10.0]
+2019.02.22.18:47:50 Progress: Parameterizing module version_id_0
+2019.02.22.18:47:50 Progress: Adding reset_controller_sw [altera_reset_controller 13.1]
+2019.02.22.18:47:50 Warning: reset_controller_sw: Used altera_reset_controller 14.0 (instead of 13.1)
+2019.02.22.18:47:50 Progress: Parameterizing module reset_controller_sw
+2019.02.22.18:47:50 Progress: Adding kernel_clk [altera_clock_bridge 13.1]
+2019.02.22.18:47:50 Warning: kernel_clk: Used altera_clock_bridge 14.0 (instead of 13.1)
+2019.02.22.18:47:50 Progress: Parameterizing module kernel_clk
+2019.02.22.18:47:50 Progress: Adding reset_bridge_0 [altera_reset_bridge 13.1]
+2019.02.22.18:47:50 Warning: reset_bridge_0: Used altera_reset_bridge 14.0 (instead of 13.1)
+2019.02.22.18:47:50 Progress: Parameterizing module reset_bridge_0
+2019.02.22.18:47:50 Progress: Adding reset_bridge_1 [altera_reset_bridge 13.1]
+2019.02.22.18:47:50 Warning: reset_bridge_1: Used altera_reset_bridge 14.0 (instead of 13.1)
+2019.02.22.18:47:50 Progress: Parameterizing module reset_bridge_1
+2019.02.22.18:47:50 Progress: Adding irq_ena_0 [irq_ena 13.0]
+2019.02.22.18:47:58 Progress: Parameterizing module irq_ena_0
+2019.02.22.18:47:58 Progress: Building connections
+2019.02.22.18:47:58 Progress: Parameterizing connections
+2019.02.22.18:47:58 Progress: Validating
+2019.02.22.18:47:58 Progress: Done reading input file
+2019.02.22.18:47:58 Progress: Parameterizing module acl_kernel_interface
+2019.02.22.18:47:58 Progress: Adding pll [altera_pll 14.0]
+2019.02.22.18:47:58 Progress: Parameterizing module pll
+2019.02.22.18:47:58 Progress: Adding address_span_extender_kernel [altera_address_span_extender 14.0]
+2019.02.22.18:47:58 Progress: Parameterizing module address_span_extender_kernel
+2019.02.22.18:47:58 Progress: Building connections
+2019.02.22.18:47:58 Progress: Parameterizing connections
+2019.02.22.18:47:58 Progress: Validating
+2019.02.22.18:48:16 Progress: Done reading input file
+2019.02.22.18:48:21 Progress: Parameterizing module acl_iface
+2019.02.22.18:48:21 Progress: Adding vectorAdd_system [vectorAdd_system 1.0]
+2019.02.22.18:48:21 Progress: Parameterizing module vectorAdd_system
+2019.02.22.18:48:21 Progress: Adding cra_root [cra_ring_root 1.0]
+2019.02.22.18:48:21 Progress: Parameterizing module cra_root
+2019.02.22.18:48:21 Progress: Adding avs_vectorAdd_cra_cra_ring [cra_ring_node 1.0]
+2019.02.22.18:48:21 Progress: Parameterizing module avs_vectorAdd_cra_cra_ring
+2019.02.22.18:48:21 Progress: Building connections
+2019.02.22.18:48:21 Progress: Parameterizing connections
+2019.02.22.18:48:21 Progress: Validating
+2019.02.22.18:48:22 Progress: Done reading input file
+2019.02.22.18:48:27 Info: system.acl_iface.acl_iface: There are recommended upgrades for: pll
+2019.02.22.18:48:27 Info: system.acl_iface.acl_kernel_clk.acl_kernel_clk: There are recommended upgrades for: kernel_pll
+2019.02.22.18:48:27 Info: system.acl_iface.acl_kernel_clk.kernel_pll: The legal reference clock frequency is 50.0 MHz..800.0 MHz
+2019.02.22.18:48:27 Info: system.acl_iface.acl_kernel_clk.kernel_pll: Able to implement PLL with user settings
+2019.02.22.18:48:27 Warning: system.acl_iface.acl_kernel_clk.acl_pll_reconfig: set_interface_assignment: Interface "mgmt_waitrequest" does not exist
+2019.02.22.18:48:27 Warning: system.acl_iface.acl_kernel_clk.global_routing_kernel_clk.global_clk/kernel_clk.clk_in: kernel_clk.clk_in requires 100000000Hz, but source has frequency of 0Hz
+2019.02.22.18:48:27 Warning: system.acl_iface.hps: "Configuration/HPS-to-FPGA user 0 clock frequency" (desired_cfg_clk_mhz) requested 100.0 MHz, but only achieved 97.368421 MHz
+2019.02.22.18:48:27 Warning: system.acl_iface.hps: 1 or more output clock frequencies cannot be achieved precisely, consider revising desired output clock frequencies.
+2019.02.22.18:48:27 Info: system.acl_iface.pll: The legal reference clock frequency is 5.0 MHz..800.0 MHz
+2019.02.22.18:48:27 Info: system.acl_iface.pll: Able to implement PLL with user settings
+2019.02.22.18:48:27 Warning: system.acl_iface: acl_iface.acl_kernel_clk_kernel_pll_locked must be exported, or connected to a matching conduit.
+2019.02.22.18:48:27 Warning: system.acl_iface: acl_iface.acl_internal_memorg_kernel must be exported, or connected to a matching conduit.
+2019.02.22.18:48:27 Warning: system.acl_iface: acl_iface.kernel_interface_acl_bsp_memorg_host must be exported, or connected to a matching conduit.
+2019.02.22.18:48:27 Info: system: Generating system "system" for QUARTUS_SYNTH
+2019.02.22.18:48:36 Info: Interconnect is inserted between master acl_iface.kernel_cra and slave cra_root.cra_slave because the master has burstcount signal 1 bit wide, but the slave is 0 bit wide.
+2019.02.22.18:48:36 Info: Interconnect is inserted between master acl_iface.kernel_cra and slave cra_root.cra_slave because the master has address signal 30 bit wide, but the slave is 4 bit wide.
+2019.02.22.18:48:36 Info: Interconnect is inserted between master acl_iface.kernel_cra and slave cra_root.cra_slave because the master has debugaccess signal 1 bit wide, but the slave is 0 bit wide.
+2019.02.22.18:48:50 Info: Interconnect is inserted between master clock_cross_kernel_mem1.m0 and slave address_span_extender_kernel.windowed_slave because the master has address signal 30 bit wide, but the slave is 25 bit wide.
+2019.02.22.18:48:50 Info: Interconnect is inserted between master clock_cross_kernel_mem1.m0 and slave address_span_extender_kernel.windowed_slave because the master has debugaccess signal 1 bit wide, but the slave is 0 bit wide.
+2019.02.22.18:48:50 Info: Interconnect is inserted between master address_span_extender_kernel.expanded_master and slave hps.f2h_sdram0_data because the master has address signal 32 bit wide, but the slave is 27 bit wide.
+2019.02.22.18:48:50 Info: Interconnect is inserted between master address_span_extender_kernel.expanded_master and slave hps.f2h_sdram0_data because the master has burstcount signal 5 bit wide, but the slave is 8 bit wide.
+2019.02.22.18:48:51 Warning: hps.f2h_irq0: Cannot connect clock for irq_mapper.sender
+2019.02.22.18:48:51 Warning: hps.f2h_irq0: Cannot connect reset for irq_mapper.sender
+2019.02.22.18:48:51 Warning: hps.f2h_irq1: Cannot connect clock for irq_mapper_001.sender
+2019.02.22.18:48:51 Warning: hps.f2h_irq1: Cannot connect reset for irq_mapper_001.sender
+2019.02.22.18:48:59 Info: acl_iface: "system" instantiated acl_iface_system "acl_iface"
+2019.02.22.18:48:59 Info: vectorAdd_system: "system" instantiated vectorAdd_system "vectorAdd_system"
+2019.02.22.18:48:59 Info: cra_root: "system" instantiated cra_ring_root "cra_root"
+2019.02.22.18:48:59 Info: avs_vectorAdd_cra_cra_ring: "system" instantiated cra_ring_node "avs_vectorAdd_cra_cra_ring"
+2019.02.22.18:48:59 Info: mm_interconnect_0: "system" instantiated altera_mm_interconnect "mm_interconnect_0"
+2019.02.22.18:48:59 Info: mm_interconnect_1: "system" instantiated altera_mm_interconnect "mm_interconnect_1"
+2019.02.22.18:48:59 Info: irq_mapper: "system" instantiated altera_irq_mapper "irq_mapper"
+2019.02.22.18:49:00 Info: Inserting clock-crossing logic between cmd_demux.src2 and cmd_mux_002.sink0
+2019.02.22.18:49:00 Info: Inserting clock-crossing logic between rsp_demux_002.src0 and rsp_mux.sink2
+2019.02.22.18:49:03 Info: acl_kernel_clk: "acl_iface" instantiated acl_kernel_clk "acl_kernel_clk"
+2019.02.22.18:49:03 Info: clock_cross_kernel_mem1: "acl_iface" instantiated altera_avalon_mm_clock_crossing_bridge "clock_cross_kernel_mem1"
+2019.02.22.18:49:03 Info: version_id: "acl_iface" instantiated version_id "version_id"
+2019.02.22.18:49:03 Info: hps: "Running  for module: hps"
+2019.02.22.18:49:05 Warning: hps: "Configuration/HPS-to-FPGA user 0 clock frequency" (desired_cfg_clk_mhz) requested 100.0 MHz, but only achieved 97.368421 MHz
+2019.02.22.18:49:05 Warning: hps: 1 or more output clock frequencies cannot be achieved precisely, consider revising desired output clock frequencies.
+2019.02.22.18:49:07 Info: hps: "acl_iface" instantiated altera_hps "hps"
+2019.02.22.18:49:07 Info: Interconnect is inserted between master address_span_extender_0.expanded_master and slave kernel_cra.s0 because the master has readdata signal 32 bit wide, but the slave is 64 bit wide.
+2019.02.22.18:49:07 Info: Interconnect is inserted between master address_span_extender_0.expanded_master and slave kernel_cra.s0 because the master has writedata signal 32 bit wide, but the slave is 64 bit wide.
+2019.02.22.18:49:07 Info: Interconnect is inserted between master address_span_extender_0.expanded_master and slave kernel_cra.s0 because the master has byteenable signal 4 bit wide, but the slave is 8 bit wide.
+2019.02.22.18:49:09 Info: Inserting clock-crossing logic between cmd_demux.src0 and cmd_mux.sink0
+2019.02.22.18:49:09 Info: Inserting clock-crossing logic between cmd_demux.src1 and cmd_mux_001.sink0
+2019.02.22.18:49:09 Info: Inserting clock-crossing logic between rsp_demux.src0 and rsp_mux.sink0
+2019.02.22.18:49:09 Info: Inserting clock-crossing logic between rsp_demux_001.src0 and rsp_mux.sink1
+2019.02.22.18:49:10 Warning: irq_ena_0.my_irq_in: Cannot connect clock for irq_mapper.sender
+2019.02.22.18:49:10 Warning: irq_ena_0.my_irq_in: Cannot connect reset for irq_mapper.sender
+2019.02.22.18:49:12 Info: acl_kernel_interface: "acl_iface" instantiated acl_kernel_interface "acl_kernel_interface"
+2019.02.22.18:49:12 Info: pll: "acl_iface" instantiated altera_pll "pll"
+2019.02.22.18:49:12 Info: address_span_extender_kernel: "acl_iface" instantiated altera_address_span_extender "address_span_extender_kernel"
+2019.02.22.18:49:13 Info: mm_interconnect_0: "acl_iface" instantiated altera_mm_interconnect "mm_interconnect_0"
+2019.02.22.18:49:13 Info: mm_interconnect_1: "acl_iface" instantiated altera_mm_interconnect "mm_interconnect_1"
+2019.02.22.18:49:13 Info: mm_interconnect_2: "acl_iface" instantiated altera_mm_interconnect "mm_interconnect_2"
+2019.02.22.18:49:13 Info: irq_mapper: "acl_iface" instantiated altera_irq_mapper "irq_mapper"
+2019.02.22.18:49:13 Info: irq_mapper_001: "acl_iface" instantiated altera_irq_mapper "irq_mapper_001"
+2019.02.22.18:49:13 Info: rst_controller: "acl_iface" instantiated altera_reset_controller "rst_controller"
+2019.02.22.18:49:13 Info: vectorAdd_system_avm_memgmem0_port_0_0_rw_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "vectorAdd_system_avm_memgmem0_port_0_0_rw_translator"
+2019.02.22.18:49:13 Info: acl_iface_kernel_mem0_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "acl_iface_kernel_mem0_translator"
+2019.02.22.18:49:14 Info: kernel_pll: "acl_kernel_clk" instantiated altera_pll "kernel_pll"
+2019.02.22.18:49:34 Info: pll_reconfig_0: "acl_kernel_clk" instantiated acl_pll_reconfig "pll_reconfig_0"
+2019.02.22.18:49:34 Info: pll_rom: Starting RTL generation for module 'system_acl_iface_acl_kernel_clk_pll_rom'
+2019.02.22.18:49:34 Info: pll_rom:   Generation command is [exec /opt/altera/14.0/quartus/linux64/perl/bin/perl -I /opt/altera/14.0/quartus/linux64/perl/lib -I /opt/altera/14.0/quartus/sopc_builder/bin/europa -I /opt/altera/14.0/quartus/sopc_builder/bin/perl_lib -I /opt/altera/14.0/quartus/sopc_builder/bin -I /opt/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I /opt/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /opt/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=system_acl_iface_acl_kernel_clk_pll_rom --dir=/tmp/alt7949_8258214406299365162.dir/0015_pll_rom_gen/ --quartus_dir=/opt/altera/14.0/quartus --verilog --config=/tmp/alt7949_8258214406299365162.dir/0015_pll_rom_gen//system_acl_iface_acl_kernel_clk_pll_rom_component_configuration.pl  --do_build_sim=0  ]
+2019.02.22.18:49:34 Info: pll_rom: Done RTL generation for module 'system_acl_iface_acl_kernel_clk_pll_rom'
+2019.02.22.18:49:34 Info: pll_rom: "acl_kernel_clk" instantiated altera_avalon_onchip_memory2 "pll_rom"
+2019.02.22.18:49:34 Info: counter: "acl_kernel_clk" instantiated timer "counter"
+2019.02.22.18:49:34 Info: global_routing_kernel_clk: "acl_kernel_clk" instantiated global_routing_clk "global_routing_kernel_clk"
+2019.02.22.18:49:34 Info: ctrl: "acl_kernel_clk" instantiated altera_avalon_mm_bridge "ctrl"
+2019.02.22.18:49:34 Info: pll_sw_reset: "acl_kernel_clk" instantiated sw_reset "pll_sw_reset"
+2019.02.22.18:49:34 Info: pll_lock_avs_0: "acl_kernel_clk" instantiated pll_lock_avs "pll_lock_avs_0"
+2019.02.22.18:49:35 Info: mm_interconnect_0: "acl_kernel_clk" instantiated altera_mm_interconnect "mm_interconnect_0"
+2019.02.22.18:49:35 Info: fpga_interfaces: "hps" instantiated altera_interface_generator "fpga_interfaces"
+2019.02.22.18:49:36 Info: hps_io: "hps" instantiated altera_hps_io "hps_io"
+2019.02.22.18:49:36 Info: sys_description_rom: Starting RTL generation for module 'system_acl_iface_acl_kernel_interface_sys_description_rom'
+2019.02.22.18:49:36 Info: sys_description_rom:   Generation command is [exec /opt/altera/14.0/quartus/linux64/perl/bin/perl -I /opt/altera/14.0/quartus/linux64/perl/lib -I /opt/altera/14.0/quartus/sopc_builder/bin/europa -I /opt/altera/14.0/quartus/sopc_builder/bin/perl_lib -I /opt/altera/14.0/quartus/sopc_builder/bin -I /opt/altera/14.0/quartus/../ip/altera/sopc_builder_ip/common -I /opt/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /opt/altera/14.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=system_acl_iface_acl_kernel_interface_sys_description_rom --dir=/tmp/alt7949_8258214406299365162.dir/0017_sys_description_rom_gen/ --quartus_dir=/opt/altera/14.0/quartus --verilog --config=/tmp/alt7949_8258214406299365162.dir/0017_sys_description_rom_gen//system_acl_iface_acl_kernel_interface_sys_description_rom_component_configuration.pl  --do_build_sim=0  ]
+2019.02.22.18:49:36 Info: sys_description_rom: Done RTL generation for module 'system_acl_iface_acl_kernel_interface_sys_description_rom'
+2019.02.22.18:49:36 Info: sys_description_rom: "acl_kernel_interface" instantiated altera_avalon_onchip_memory2 "sys_description_rom"
+2019.02.22.18:49:36 Info: mem_org_mode: "acl_kernel_interface" instantiated mem_org_mode "mem_org_mode"
+2019.02.22.18:49:36 Info: irq_bridge_0: "acl_kernel_interface" instantiated altera_irq_bridge "irq_bridge_0"
+2019.02.22.18:49:36 Info: irq_ena_0: "acl_kernel_interface" instantiated irq_ena "irq_ena_0"
+2019.02.22.18:49:36 Info: mm_interconnect_0: "acl_kernel_interface" instantiated altera_mm_interconnect "mm_interconnect_0"
+2019.02.22.18:49:38 Info: mm_interconnect_1: "acl_kernel_interface" instantiated altera_mm_interconnect "mm_interconnect_1"
+2019.02.22.18:49:38 Info: hps_h2f_lw_axi_master_agent: "mm_interconnect_0" instantiated altera_merlin_axi_master_ni "hps_h2f_lw_axi_master_agent"
+2019.02.22.18:49:38 Info: version_id_s_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "version_id_s_agent"
+2019.02.22.18:49:38 Info: version_id_s_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "version_id_s_agent_rsp_fifo"
+2019.02.22.18:49:38 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+2019.02.22.18:49:38 Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+2019.02.22.18:49:38 Info: hps_h2f_lw_axi_master_wr_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "hps_h2f_lw_axi_master_wr_limiter"
+2019.02.22.18:49:38 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_avalon_sc_fifo.v
+2019.02.22.18:49:38 Info: version_id_s_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "version_id_s_burst_adapter"
+2019.02.22.18:49:38 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_address_alignment.sv
+2019.02.22.18:49:38 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_avalon_st_pipeline_base.v
+2019.02.22.18:49:38 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+2019.02.22.18:49:38 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+2019.02.22.18:49:38 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+2019.02.22.18:49:38 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+2019.02.22.18:49:38 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_arbitrator.sv
+2019.02.22.18:49:38 Info: address_span_extender_kernel_expanded_master_agent: "mm_interconnect_2" instantiated altera_merlin_master_agent "address_span_extender_kernel_expanded_master_agent"
+2019.02.22.18:49:38 Info: router: "mm_interconnect_2" instantiated altera_merlin_router "router"
+2019.02.22.18:49:38 Info: router_001: "mm_interconnect_2" instantiated altera_merlin_router "router_001"
+2019.02.22.18:49:38 Info: cmd_demux: "mm_interconnect_2" instantiated altera_merlin_demultiplexer "cmd_demux"
+2019.02.22.18:49:39 Info: cmd_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "cmd_mux"
+2019.02.22.18:49:39 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_arbitrator.sv
+2019.02.22.18:49:39 Info: rsp_mux: "mm_interconnect_2" instantiated altera_merlin_multiplexer "rsp_mux"
+2019.02.22.18:49:39 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_arbitrator.sv
+2019.02.22.18:49:39 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+2019.02.22.18:49:39 Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+2019.02.22.18:49:39 Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+2019.02.22.18:49:39 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+2019.02.22.18:49:39 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+2019.02.22.18:49:39 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_arbitrator.sv
+2019.02.22.18:49:39 Info: cmd_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_002"
+2019.02.22.18:49:39 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_arbitrator.sv
+2019.02.22.18:49:39 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+2019.02.22.18:49:39 Info: rsp_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_002"
+2019.02.22.18:49:39 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+2019.02.22.18:49:39 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_arbitrator.sv
+2019.02.22.18:49:39 Info: crosser: "mm_interconnect_0" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+2019.02.22.18:49:39 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_avalon_st_pipeline_base.v
+2019.02.22.18:50:13 Info: border: "hps_io" instantiated altera_interface_generator "border"
+2019.02.22.18:50:13 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+2019.02.22.18:50:13 Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+2019.02.22.18:50:13 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+2019.02.22.18:50:13 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+2019.02.22.18:50:13 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_arbitrator.sv
+2019.02.22.18:50:13 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+2019.02.22.18:50:13 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_arbitrator.sv
+2019.02.22.18:50:13 Info: kernel_cra_s0_cmd_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "kernel_cra_s0_cmd_width_adapter"
+2019.02.22.18:50:13 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_address_alignment.sv
+2019.02.22.18:50:13 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+2019.02.22.18:50:13 Info: router: "mm_interconnect_1" instantiated altera_merlin_router "router"
+2019.02.22.18:50:13 Info: router_001: "mm_interconnect_1" instantiated altera_merlin_router "router_001"
+2019.02.22.18:50:13 Info: router_002: "mm_interconnect_1" instantiated altera_merlin_router "router_002"
+2019.02.22.18:50:13 Info: router_003: "mm_interconnect_1" instantiated altera_merlin_router "router_003"
+2019.02.22.18:50:13 Info: router_005: "mm_interconnect_1" instantiated altera_merlin_router "router_005"
+2019.02.22.18:50:13 Info: cmd_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "cmd_demux"
+2019.02.22.18:50:13 Info: cmd_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux"
+2019.02.22.18:50:13 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_arbitrator.sv
+2019.02.22.18:50:13 Info: cmd_mux_002: "mm_interconnect_1" instantiated altera_merlin_multiplexer "cmd_mux_002"
+2019.02.22.18:50:13 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_arbitrator.sv
+2019.02.22.18:50:13 Info: rsp_demux: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux"
+2019.02.22.18:50:13 Info: rsp_demux_002: "mm_interconnect_1" instantiated altera_merlin_demultiplexer "rsp_demux_002"
+2019.02.22.18:50:13 Info: rsp_mux: "mm_interconnect_1" instantiated altera_merlin_multiplexer "rsp_mux"
+2019.02.22.18:50:13 Info: Reusing file /home/pmallya/csc456/bin_vectorAdd/system/synthesis/submodules/altera_merlin_arbitrator.sv
+2019.02.22.18:50:13 Info: system: Done "system" with 85 modules, 193 files
